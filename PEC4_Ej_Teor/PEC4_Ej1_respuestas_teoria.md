@@ -1,0 +1,12 @@
+**ng new:** Esta opción se utiliza para **crear** un nuevo proyecto de Angular. Cuando ejecutas ng new, **Angular CLI** te guiará a través de un proceso interactivo para configurar un **nuevo proyecto**, incluyendo la **estructura de archivos inicial, las dependencias necesarias y la configuración básica**.
+ng generate:
+**component:** Genera un **nuevo componente Angular** junto con su archivo de plantilla HTML, archivo de estilos CSS/SCSS, y archivos de prueba.
+**directive:** Crea una nueva **directiva Angular**. Las directivas se utilizan para **modificar el comportamiento** de los elementos DOM.
+**enum:** Genera un nuevo archivo de **enumeración TypeScript**. Las enumeraciones son un conjunto de nombres simbólicos con valores asociados.
+**guard:** Crea un **nuevo guardia Angular**. Los **guardias se utilizan para controlar el acceso a ciertas rutas** en una aplicación Angular.
+**interface:** Genera una **nueva interfaz TypeScript**. Las interfaces se utilizan para definir la estructura de los objetos en TypeScript.
+**pipe:** Crea un nuevo **tubo (pipe) Angular**. Los pipes se utilizan para **transformar los valores de los datos** en las plantillas HTML.
+**service:** Genera un nuevo **servicio Angular**. Los servicios se utilizan para **compartir lógica de negocio, datos o funcionalidades entre diferentes partes de la aplicación**.
+**ng serve:** Esta opción se utiliza para **compilar y servir la aplicación Angular en un servidor** de desarrollo local. Cuando ejecutas ng serve, **Angular CLI compila tu aplicación y la sirve en un servidor local**. Además, habilita la recarga automática del navegador para que puedas ver los cambios en tiempo real mientras desarrollas tu aplicación.
+**ng test:** Permite **ejecutar las pruebas unitarias** definidas en la aplicación Angular **utilizando Karma y Jasmine**. Angular CLI configura automáticamente las pruebas unitarias cuando creas un nuevo proyecto, y ng test ejecuta esas pruebas y muestra los resultados en la terminal.
+**ng version:** Esta opción **muestra la versión de Angular CLI, Angular Core y otros paquetes relacionados** instalados en tu sistema. Es útil para verificar las versiones de Angular y Angular CLI que estás utilizando en un proyecto específico.
