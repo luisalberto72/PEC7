@@ -6,9 +6,10 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<div *ngFor="let article of articles">
-  <app-article-item [article]="article"></app-article-item>
+<!-- app.component.html -->
+<div>
+  <h1>{{ title }}</h1>
+  <app-article-list></app-article-list>
 </div>
 
 <style>

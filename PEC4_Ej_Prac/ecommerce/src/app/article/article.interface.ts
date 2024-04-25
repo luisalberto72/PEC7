@@ -1,5 +1,6 @@
 // article.interface.ts
 export interface Article {
+    id: number;
     name: string;
     imageUrl: string;
     price: number;
