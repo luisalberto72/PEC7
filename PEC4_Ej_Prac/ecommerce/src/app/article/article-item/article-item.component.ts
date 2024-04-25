@@ -7,15 +7,9 @@ import { Article } from '../article.interface';
   styleUrl: './article-item.component.css'
 })
 export class ArticleItemComponent {
-  //@Input() article: Article;
-  article: Article = {
-    name: 'Vino Rioja Ramón bilbao',
-    imageUrl: '../assets/images/Bilbao.png',
-    price: 56.70,
-    isOnSale: true,
-    quantityInCart: 0
-  };
 
+  @Input() article: Article;
+  
   incrementQuantity() {
     this.article.quantityInCart++;
   }

@@ -1,12 +1,14 @@
 
+  
+
 <!-- article-item.component.html -->
 <div [ngClass]="{'on-sale': article.isOnSale, 'not-in-stock': !article.isOnSale}">
     <img [src]="article.imageUrl" alt="Article Image">
     <h3>{{ article.name }}</h3>
-    <p>Price: {{ article.price }}€</p>
-    <p>Quantity in Cart: {{ article.quantityInCart }}</p>
+    <p [ngClass]="{'price-not-for-sale': !article.isOnSale}">Price: {{ article.price }}€</p>
+    <p *ngIf="article.isOnSale">Quantity in Cart: {{ article.quantityInCart }}</p>
     <!-- Botones de incremento y decremento aquí -->
-    <button (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">-</button>
-    <button (click)="incrementQuantity()">+</button>
+    <button *ngIf="article.isOnSale" (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">-</button>
+    <button *ngIf="article.isOnSale" (click)="incrementQuantity()">+</button>
 </div>
   
