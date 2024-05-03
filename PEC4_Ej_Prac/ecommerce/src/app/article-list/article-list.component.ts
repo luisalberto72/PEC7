@@ -27,7 +27,7 @@ export class ArticleListComponent {
     },
     { 
       id: 3,
-      name: 'Producto en venta',
+      name: 'Cune Ribera del Duero.CRIANZA 2020',
       imageUrl: '../assets/images/Cune.png',
       price: 15,
       isOnSale: true,

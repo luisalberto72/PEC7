@@ -10,17 +10,17 @@ import { Article } from '../article.interface';
 export class ArticleItemComponent {
 
   @Input() article: Article;
-  @Output() articleQuantityChange = new EventEmitter<{ article: Article, quantity: number }>();
+  @Output() ArticleQuantityChange = new EventEmitter<{ article: Article, quantity: number }>();
   
   incrementQuantity() {
     this.article.quantityInCart++;
-    this.articleQuantityChange.emit({ article: this.article, quantity: this.article.quantityInCart });
+    this.ArticleQuantityChange.emit({ article: this.article, quantity: this.article.quantityInCart });
   }
 
   decrementQuantity() {
     if (this.article.quantityInCart > 0) {
       this.article.quantityInCart--;
-      this.articleQuantityChange.emit({ article: this.article, quantity: this.article.quantityInCart });
+      this.ArticleQuantityChange.emit({ article: this.article, quantity: this.article.quantityInCart });
     }
   }
 }
