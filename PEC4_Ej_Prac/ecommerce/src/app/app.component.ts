@@ -8,7 +8,7 @@ import { Article } from './article/article.interface';
 })
 export class AppComponent {
 
-  title = 'TPV Vinoteca';
+  title = 'TPV Vinoteca!';
 
 
 }
