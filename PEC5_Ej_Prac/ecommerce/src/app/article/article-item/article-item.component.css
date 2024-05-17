@@ -1,0 +1,14 @@
+/* article-item.component.css */
+.on-sale {
+  background-color: #572364; /* Color de fondo para resaltar cuando esté en venta */
+}
+
+.not-in-stock {
+  background-color: #f0f0f0; /* Color de fondo para indicar que no está en stock */
+}
+
+
+/* article-item.component.css */
+.price-not-for-sale {
+  color: #888; /* Color gris para indicar que el artículo no está disponible para la venta */
+}
