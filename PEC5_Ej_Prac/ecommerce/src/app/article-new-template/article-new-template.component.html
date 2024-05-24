@@ -1,35 +1,37 @@
 <div class="container mt-4">
   <h2>Nuevo Artículo</h2>
   <form #articleForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="name" class="form-label">Nombre de artículo</label>
-      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="article.name" required>
-      <div *ngIf="articleForm.controls['name'].invalid && articleForm.controls['name'].touched" class="text-danger">
-        Nombre de artículo es obligatorio
+    <div ngModelGroup="article">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre de artículo</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="article.name" required>
+        <div *ngIf="articleForm.controls['article'].controls['name'].invalid && articleForm.controls['article'].controls['name'].touched" class="text-danger">
+          Nombre de artículo es obligatorio
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio del artículo</label>
+        <input type="text" class="form-control" id="price" name="price" [(ngModel)]="article.price" pattern="^\d+(\.\d{1,2})?$" required>
+        <div *ngIf="articleForm.controls['article'].controls['price'].invalid && articleForm.controls['article'].controls['price'].touched" class="text-danger">
+          Precio es obligatorio y debe ser numérico
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">URL de la imagen</label>
+        <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="article.imageUrl" pattern="^(http|https):\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9]+)+([\/?].*)?$" required>
+        <div *ngIf="articleForm.controls['article'].controls['imageUrl'].invalid && articleForm.controls['article'].controls['imageUrl'].touched" class="text-danger">
+          URL de la imagen es obligatoria y debe ser una URL válida
+        </div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="isOnSale" name="isOnSale" [(ngModel)]="article.isOnSale">
+        <label class="form-check-label" for="isOnSale">¿Está en venta?</label>
       </div>
     </div>
-    
-    <div class="mb-3">
-      <label for="price" class="form-label">Precio del artículo</label>
-      <input type="text" class="form-control" id="price" name="price" [(ngModel)]="article.price" pattern="^\d+(\.\d{1,2})?$" required>
-      <div *ngIf="articleForm.controls['price'].invalid && articleForm.controls['price'].touched" class="text-danger">
-        Precio es obligatorio y debe ser numérico
-      </div>
-    </div>
-    
-    <div class="mb-3">
-      <label for="imageUrl" class="form-label">URL de la imagen</label>
-      <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="article.imageUrl" pattern="^(http|https):\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9]+)+([\/?].*)?$" required>
-      <div *ngIf="articleForm.controls['imageUrl'].invalid && articleForm.controls['imageUrl'].touched" class="text-danger">
-        URL de la imagen es obligatoria y debe ser una URL válida
-      </div>
-    </div>
-    
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="isOnSale" name="isOnSale" [(ngModel)]="article.isOnSale">
-      <label class="form-check-label" for="isOnSale">¿Está en venta?</label>
-    </div>
-    
+
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>
