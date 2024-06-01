@@ -1,39 +1,42 @@
 <div class="container mt-4">
-    <h2>Nuevo Artículo Reactivo</h2>
-    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="name" class="form-label">Nombre de artículo</label>
-        <input type="text" class="form-control" id="name" formControlName="name">
-        <div *ngIf="articleForm.get('name').invalid && (articleForm.get('name').dirty || articleForm.get('name').touched)" class="text-danger">
-          <div *ngIf="articleForm.get('name').errors.required">Nombre de artículo es obligatorio</div>
-          <div *ngIf="articleForm.get('name').errors.forbiddenName">El nombre no puede ser Prueba, Test, Mock o Fake</div>
-        </div>
+  <h2>Nuevo Artículo Reactivo</h2>
+  <form [formGroup]="articleForm" (ngSubmit)="createArticle$ = onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre de artículo</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="articleForm.get('name').invalid && (articleForm.get('name').dirty || articleForm.get('name').touched)" class="text-danger">
+        <div *ngIf="articleForm.get('name').errors?.required">Nombre de artículo es obligatorio</div>
       </div>
-      
-      <div class="mb-3">
-        <label for="price" class="form-label">Precio del artículo</label>
-        <input type="number" class="form-control" id="price" formControlName="price">
-        <div *ngIf="articleForm.get('price').invalid && (articleForm.get('price').dirty || articleForm.get('price').touched)" class="text-danger">
-          <div *ngIf="articleForm.get('price').errors.required">Precio es obligatorio</div>
-          <div *ngIf="articleForm.get('price').errors.min">El precio debe ser mínimo 0.1€</div>
-        </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="price" class="form-label">Precio del artículo</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+      <div *ngIf="articleForm.get('price').invalid && (articleForm.get('price').dirty || articleForm.get('price').touched)" class="text-danger">
+        <div *ngIf="articleForm.get('price').errors?.required">Precio es obligatorio</div>
+        <div *ngIf="articleForm.get('price').errors?.min">El precio debe ser mínimo 0.1€</div>
       </div>
-      
-      <div class="mb-3">
-        <label for="imageUrl" class="form-label">URL de la imagen</label>
-        <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl">
-        <div *ngIf="articleForm.get('imageUrl').invalid && (articleForm.get('imageUrl').dirty || articleForm.get('imageUrl').touched)" class="text-danger">
-          <div *ngIf="articleForm.get('imageUrl').errors.required">URL de la imagen es obligatoria</div>
-          <div *ngIf="articleForm.get('imageUrl').errors.pattern">URL de la imagen debe ser una URL válida</div>
-        </div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">URL de la imagen</label>
+      <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl">
+      <div *ngIf="articleForm.get('imageUrl').invalid && (articleForm.get('imageUrl').dirty || articleForm.get('imageUrl').touched)" class="text-danger">
+        <div *ngIf="articleForm.get('imageUrl').errors?.required">URL de la imagen es obligatoria</div>
       </div>
-      
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="isOnSale" formControlName="isOnSale">
-        <label class="form-check-label" for="isOnSale">¿Está en venta?</label>
-      </div>
-      
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+    </div>
+    
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="isOnSale" formControlName="isOnSale">
+      <label class="form-check-label" for="isOnSale">¿Está en venta?</label>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  
+  <div *ngIf="createArticle$ | async as createArticle">
+    <p>Artículo creado exitosamente</p>
   </div>
+</div>
+
   

@@ -1,8 +1,8 @@
-
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Article } from '../article/article.interface';
 import { ArticleService } from '../services/article.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-new-reactive',
@@ -11,6 +11,7 @@ import { ArticleService } from '../services/article.service';
 })
 export class ArticleNewReactiveComponent {
   articleForm: FormGroup;
+  createArticle$: Observable<any>; // Cambiar el tipo de Observable según lo que devuelva articleService.create()
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,16 +26,11 @@ export class ArticleNewReactiveComponent {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(): Observable<any> { // Devolver Observable
     if (this.articleForm.valid) {
       const newArticle: Article = this.articleForm.value;
-      this.articleService.create(newArticle).subscribe(() => {
-        console.log('Artículo creado exitosamente');
-        this.articleForm.reset(); 
-      });
-    } else {
-      console.log('Formulario inválido');
+      return this.articleService.create(newArticle); // Devolver el observable directamente
     }
+    return null; // Devolver null si el formulario no es válido
   }
 }
-

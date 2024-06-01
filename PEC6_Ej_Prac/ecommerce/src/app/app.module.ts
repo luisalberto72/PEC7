@@ -11,6 +11,7 @@ import { ArticleNewTemplateComponent } from './article-new-template/article-new-
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
+import { HttpClientModule,provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule 
   ],
   providers: [
-    
+    provideHttpClient(withFetch()) // Aquí se habilita fetch
   ],
   bootstrap: [AppComponent]
 })
