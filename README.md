@@ -9,4 +9,4 @@ Dentro de la carpeta PEC6_Ej_Teor encontramos un fichero de texto markdown para 
 - **PEC6_Ej2_respuestas_teoria.md** para las respuestas del ejercicio 2.
 - **PEC6_Ej3_respuestas_teoria.md** para las respuestas del ejercicio 3.
 
-Además tenemos una **carpeta PEC5_Ej_Prac** con el repositorio git y los ficheros resultado de haber realizado las tareas del ejercicio 2, 4 y 5
+Además tenemos una **carpeta PEC6_Ej_Prac** con el repositorio git y los ficheros resultado de haber realizado las tareas del ejercicio 2, 4 y 5
