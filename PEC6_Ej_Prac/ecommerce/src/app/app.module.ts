@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
 import { HttpClientModule,provideHttpClient, withFetch } from '@angular/common/http';
+import { DefaultImagePipe } from './default-image.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule,provideHttpClient, withFetch } from '@angular/common/h
     ArticleListComponent,
     NavbarComponent,
     ArticleNewTemplateComponent,
-    ArticleNewReactiveComponent
+    ArticleNewReactiveComponent,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
