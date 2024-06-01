@@ -14,8 +14,8 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.apiUrl);
+  getArticles(searchTerm: string = ''): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.apiUrl}?q=${searchTerm}`);
   }
 
   changeQuantity(articleID: number, changeInQuantity: number): Observable<Article> {

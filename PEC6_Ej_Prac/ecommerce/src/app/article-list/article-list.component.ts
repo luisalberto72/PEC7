@@ -12,10 +12,15 @@ import { ArticleService } from '../services/article.service';
 export class ArticleListComponent implements OnInit {
   
   articles: Observable<Article[]>;
+  searchTerm: string = '';
 
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.articles = this.articleService.getArticles();
+    this.loadArticles();
+  }
+
+  loadArticles(): void {
+    this.articles = this.articleService.getArticles(this.searchTerm);
   }
 }

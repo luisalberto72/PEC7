@@ -34,5 +34,5 @@ merge(this.reloadProductsList): Este operador merge combina dos observables, sea
 
 switchMap((query) => this.wineService.getWine(this.searchTerm)): Finalmente, el operador switchMap se utiliza para cambiar a un nuevo observable (this.wineService.getWine(this.searchTerm)) cada vez que se emite un nuevo valor desde el observable searchSubject. Esto garantiza que solo se realice una solicitud HTTP al servidor para buscar vinos en función del término de búsqueda más reciente.
 
-En resumen, este código se usaría en un caso en el que se necesite realizar búsquedas en una lista de vinos (o productos) basadas en un término de búsqueda proporcionado por el usuario, con un retraso de tiempo entre pulsaciones de teclado para evitar búsquedas innecesarias y una solicitud HTTP al servidor solo cuando el término de búsqueda cambie.
+En resumen, este código se usaría en un caso en el que se necesite realizar búsquedas en una lista de vinos (o productos) basadas en un término de búsqueda proporcionado por el usuario, con un retraso de tiempo entre pulsaciones de teclado para evitar búsquedas innecesarias y una solicitud HTTP al servidor solo cuando el término de búsqueda cambie.n
 
