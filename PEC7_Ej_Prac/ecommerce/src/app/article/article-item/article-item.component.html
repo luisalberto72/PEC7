@@ -5,4 +5,4 @@
     <p *ngIf="article.isOnSale">Cantidad en carrito: {{ article.quantityInCart }}</p>
     <button *ngIf="article.isOnSale" (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">-</button>
     <button *ngIf="article.isOnSale" (click)="incrementQuantity()">+</button>
-  </div>
+</div>

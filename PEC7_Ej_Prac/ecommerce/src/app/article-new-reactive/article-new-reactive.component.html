@@ -1,9 +1,21 @@
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-  <input formControlName="name" placeholder="Nombre del artículo">
-  <input formControlName="imageUrl" placeholder="URL de la imagen">
-  <input formControlName="price" placeholder="Precio">
-  <input type="checkbox" formControlName="isOnSale"> En oferta
+  <div>
+    <label for="name">Nombre del artículo:</label>
+    <input id="name" formControlName="name" placeholder="Nombre del artículo">
+  </div>
+  <div>
+    <label for="imageUrl">URL de la imagen:</label>
+    <input id="imageUrl" formControlName="imageUrl" placeholder="URL de la imagen">
+  </div>
+  <div>
+    <label for="price">Precio:</label>
+    <input id="price" formControlName="price" placeholder="Precio">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" formControlName="isOnSale">
+      En oferta
+    </label>
+  </div>
   <button type="submit">Crear artículo</button>
 </form>
-
-  

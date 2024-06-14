@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  successMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -25,15 +26,17 @@ export class RegisterComponent {
   onSubmit() {
     if (this.registerForm.valid) {
       const { username, password } = this.registerForm.value;
-      this.authService.register(username, password).subscribe(
-        response => {
+      this.authService.register(username, password).subscribe({
+        next: (response) => {
           console.log('User registered successfully', response);
-          this.router.navigate(['/login']);
+          this.successMessage = 'Successfully created user, please login'; // Establecer el mensaje de éxito
+          this.registerForm.reset(); // Resetear el formulario
         },
-        error => {
+        error: (error) => {
           console.error('Error registering user', error);
         }
-      );
+      });
     }
   }
 }
+

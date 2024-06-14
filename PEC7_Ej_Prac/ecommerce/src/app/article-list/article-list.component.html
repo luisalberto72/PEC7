@@ -1,5 +1,5 @@
 <input type="text" placeholder="Buscar artículo" [(ngModel)]="searchTerm" (keyup)="loadArticles()">
-<ul>
+<ul class="no-bolos">
   <li *ngFor="let article of articles">
     <app-article-item [article]="article" (ArticleQuantityChange)="handleQuantityChange($event)"></app-article-item>
   </li>

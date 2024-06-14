@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+nav ul {
+    list-style-type: none;
+    padding: 5;
+    margin: 5;
+    display: flex;
+    justify-content: space-around; /* Alinea los elementos horizontalmente */
+    background-color: #f0f0f0; /* Color de fondo normal */
+  }
+  
+  nav ul li {
+    padding: 10px;
+  }
+  
+  nav ul li:hover {
+    background-color: #ccc; /* Color de fondo al pasar el mouse */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+.no-bolos{
+
+  list-style-type: none;
+  padding: 5;
+  margin: 5;
+}
+
+input,label,button {
+  margin-bottom: 15px;
+  margin-left:15px;
+}

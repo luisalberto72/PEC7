@@ -19,7 +19,7 @@ export class ArticleDetailComponent implements OnInit {
     const articleId = this.route.snapshot.paramMap.get('id');
   this.articleService.getArticleById(+articleId).subscribe((data) => {
     this.article = data;
-    console.log(this.article); // Agrega este console.log para verificar los datos
+    console.log(this.article); 
   });
   }
 }
