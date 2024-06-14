@@ -1,0 +1,9 @@
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="Nombre del artículo">
+  <input formControlName="imageUrl" placeholder="URL de la imagen">
+  <input formControlName="price" placeholder="Precio">
+  <input type="checkbox" formControlName="isOnSale"> En oferta
+  <button type="submit">Crear artículo</button>
+</form>
+
+  
