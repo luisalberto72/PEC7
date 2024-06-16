@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../shared/services/article.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ArticleNewReactiveComponent {
   articleForm: FormGroup;
+  successMessage2: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +28,8 @@ export class ArticleNewReactiveComponent {
   onSubmit() {
     if (this.articleForm.valid) {
       this.articleService.addArticle(this.articleForm.value).subscribe(response => {
-        this.router.navigate(['/article/list']);
+        this.successMessage2 = 'Created Article';
+        this.router.navigate(['/article/create']);
       });
     }
   }

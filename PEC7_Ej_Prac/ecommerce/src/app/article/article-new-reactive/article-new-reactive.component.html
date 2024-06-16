@@ -1,4 +1,7 @@
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="successMessage2">
+    {{ successMessage2 }}
+  </div>
   <div>
     <label for="name">Nombre del artículo:</label>
     <input id="name" formControlName="name" placeholder="Nombre del artículo">

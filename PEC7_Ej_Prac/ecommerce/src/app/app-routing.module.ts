@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
-import { ArticleDetailComponent } from './article-detail/article-detail.component';
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'article/list', component: ArticleListComponent },
-  { path: 'article/create', component: ArticleNewReactiveComponent, canActivate: [AuthGuard] },
-  { path: 'article/:id', component: ArticleDetailComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'articles',
+    loadChildren: () => import('./article/article.module').then(m => m.ArticleModule)
+  },
+  { path: '**', redirectTo: '/auth/login' } // Redirección para rutas no encontradas
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

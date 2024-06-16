@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../services/article.service';
-import { Article } from '../article/article.interface';
+import { ArticleService } from '../../shared/services/article.service';
+import { Article } from '../article.interface';
 
 @Component({
   selector: 'app-article-list',
@@ -9,6 +9,8 @@ import { Article } from '../article/article.interface';
 export class ArticleListComponent implements OnInit {
   searchTerm: string = '';
   articles: Article[] = [];
+
+  defaultImageUrl: string = 'assets/images/default-image.jpg'; // Ruta de la imagen por defecto
 
   constructor(private articleService: ArticleService) {}
 
@@ -27,5 +29,9 @@ export class ArticleListComponent implements OnInit {
     if (updatedArticle) {
       updatedArticle.quantityInCart = event.quantity;
     }
+  }
+
+  setDefaultImage(event: any): void {
+    event.target.src = this.defaultImageUrl;
   }
 }

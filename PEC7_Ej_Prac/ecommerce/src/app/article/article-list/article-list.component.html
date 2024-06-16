@@ -1,0 +1,14 @@
+
+
+<div *ngFor="let article of articles">
+  <!-- Utilizando el método setDefaultImage para la imagen por defecto -->
+  <div [ngClass]="{'on-sale': article.isOnSale, 'not-in-stock': !article.isOnSale}">
+    <img [src]="article.imageUrl" alt="Article Image" (error)="setDefaultImage($event)">
+    <h3>{{ article.name }}</h3>
+    <p>Precio: {{ article.price | currency:'EUR':'symbol':'1.2-2' }}</p>
+    <p *ngIf="article.isOnSale">Cantidad en carrito: {{ article.quantityInCart }}</p>
+    <!-- Botones para cambiar la cantidad en el carrito -->
+    <button *ngIf="article.isOnSale" (click)="handleQuantityChange({ article: article, quantity: article.quantityInCart - 1 })" [disabled]="article.quantityInCart === 0">-</button>
+    <button *ngIf="article.isOnSale" (click)="handleQuantityChange({ article: article, quantity: article.quantityInCart + 1 })">+</button>
+  </div>
+</div>

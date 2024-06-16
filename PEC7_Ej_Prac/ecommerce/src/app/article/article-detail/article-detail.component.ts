@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../shared/services/article.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -8,6 +8,7 @@ import { ArticleService } from '../services/article.service';
   styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
+
   article: any;
 
   constructor(

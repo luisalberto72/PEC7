@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthStoreService } from '../services/auth-store.service';
+import { AuthStore } from '../shared/services/auth-store.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,5 +7,5 @@ import { AuthStoreService } from '../services/auth-store.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(public authStore: AuthStoreService) {}
+  constructor(public authStore: AuthStore) {}
 }
