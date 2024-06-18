@@ -3,7 +3,7 @@
 - Luis Alberto Mesa Martos
 
 
-Dentro de la carpeta PEC7_Ej_Teor encontramos un fichero de texto markdown para cada uno de los ejercicios de teoría:
+Dentro de la carpeta **PEC7_Ej_Teor** encontramos un fichero de texto markdown para cada uno de los ejercicios de teoría:
 
 - **PEC7_Ej1_respuestas_teoria.md** para las respuestas del ejercicio 1.
 

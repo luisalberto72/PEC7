@@ -1,5 +1,4 @@
 
-
 <div *ngFor="let article of articles">
   <!-- Utilizando el método setDefaultImage para la imagen por defecto -->
   <div [ngClass]="{'on-sale': article.isOnSale, 'not-in-stock': !article.isOnSale}">

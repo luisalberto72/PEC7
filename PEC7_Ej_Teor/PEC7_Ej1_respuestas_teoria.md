@@ -41,57 +41,60 @@ Ejemplo:
 
 routerLink:
 
-Propósito: La directiva routerLink se utiliza para definir rutas de navegación en Angular. Se aplica a elementos HTML, normalmente <a>, para hacer que actúen como enlaces de navegación dentro de la aplicación.
+**La directiva routerLink** se utiliza para **definir rutas de navegación en Angular.** Se **aplica a elementos HTML**, normalmente <a>, para hacer que actúen **como enlaces de navegación** dentro de la aplicación.
 
 Sintaxis: [routerLink]="['/ruta']" o routerLink="/ruta"
 
-Funcionamiento: Al hacer clic en un enlace con routerLink, Angular navega a la ruta especificada sin recargar la página.
+Funcionamiento: Al hacer clic **en un enlace con routerLink**, Angular **navega a la ruta especificada sin recargar la página.**
 
 Ejemplo:
 <a routerLink="/home">Home</a>
 
 routerLinkActive:
 
-Propósito: La directiva routerLinkActive se utiliza para aplicar clases CSS a los enlaces que coinciden con la ruta activa. Esto es útil para resaltar visualmente el enlace que corresponde a la vista actualmente activa.
+**La directiva routerLinkActive** se utiliza **para aplicar clases CSS a los enlaces que coinciden con la ruta activa.** Esto es útil para resaltar visualmente el enlace que corresponde a la vista actualmente activa.
 
 Sintaxis: [routerLinkActive]="['clase-activa']"
 
-Funcionamiento: Angular añade la(s) clase(s) especificada(s) a los enlaces cuyos routerLink coinciden con la ruta activa.
+Funcionamiento: Angular **añade la(s) clase(s) especificada(s) a los enlaces** cuyos routerLink coinciden con la ruta activa.
 
 Ejemplo:
 <a routerLink="/home" routerLinkActive="active">Home</a>
 
 
-Otras directivas que se pueden utilizar con el router en Angular:
+Otras **directivas que se pueden utilizar con el router** en Angular:
 
-routerLinkActiveOptions: Se utiliza junto con routerLinkActive para especificar opciones adicionales, como la coincidencia exacta de rutas.
+**routerLinkActiveOptions:** Se utiliza **junto con routerLinkActive para especificar opciones adicionales, como la coincidencia exacta de rutas.**
 
 Ejemplo:
 <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
 
-router-outlet: Es una directiva de marcador de posición que Angular utiliza para insertar el componente correspondiente a la ruta activa. Debe estar presente en la plantilla principal de la aplicación.
+****router-outlet:** Es una directiva de marcador de posición que Angular ****utiliza para insertar el componente correspondiente a la ruta activa.** Debe estar presente **en la plantilla principal** de la aplicación.
 
 Ejemplo:
 <router-outlet></router-outlet>
 
-routerLinkWithHref: Permite utilizar routerLink con enlaces que no son <a>.
+**routerLinkWithHref:** Permite **utilizar routerLink con enlaces** que **no son <a>.**
 
 Ejemplo:
 <button [routerLinkWithHref]="['/home']">Home</button>
 
-**c-ActivatedRouteSnapshot**
-ActivatedRouteSnapshot es una clase en Angular que representa el estado de una ruta en un punto específico en el tiempo. Proporciona acceso a toda la información estática sobre la ruta asociada, incluyendo parámetros de ruta, datos y configuraciones.
+**c-Describe el servicio ActivatedRouteSnapshot.¿Cómo se utiliza y en qué casos es útil?**
 
-¿Cómo se utiliza?
-Se utiliza comúnmente en el contexto de Route Guards, resolvers, y otros servicios relacionados con el enrutamiento.
+**ActivatedRouteSnapshot** es una **clase en Angular que representa el estado de una ruta en un punto específico en el tiempo.** Proporciona acceso a toda la información estática sobre la ruta asociada, incluyendo parámetros de ruta, datos y configuraciones.
 
-Casos en que es útil
-Route Guards: Para verificar si un usuario tiene permiso para acceder a una ruta.
-Resolvers: Para pre-cargar datos antes de que se active una ruta.
-Acceso a Parámetros de Ruta: Para obtener parámetros de la URL.
+**¿Cómo se utiliza?**
+
+Se utiliza comúnmente **en el contexto de Route Guards, resolvers, y otros servicios relacionados con el enrutamiento.**
+
+**Casos en que es útil:**
+
+**Route Guards:** Para **verificar si un usuario tiene permiso para acceder a una ruta.**
+**Resolvers:** Para **pre-cargar datos antes de que se active una ruta.**
+**Acceso a Parámetros de Ruta:** Para obtener **parámetros de la URL.**
+
 Ejemplo
-typescript
-Copiar código
+
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -104,18 +107,21 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const isLoggedIn = false; // lógicamente aquí comprobarías el estado de autenticación real
+    const isLoggedIn = false; // Aquí comprobaríamos el estado de autenticación real
     return isLoggedIn;
   }
 }
-**d-Route Guards**
-Las Route Guards son servicios en Angular que se utilizan para controlar la navegación hacia y desde rutas específicas. Pueden interceptar la navegación y decidir si permitirla o no.
 
-Tipos de Guardas en Angular
-CanActivate: Previene la activación de una ruta.
+**d-¿Qué son las Route Guards? ¿Cómo se usan las guardas en Angular? Describe todas las guardas que existen en Angular (consulta para ello la documentación oficial de Angular)**
 
-typescript
-Copiar código
+Las Route Guards **son servicios en Angular** que se utilizan **para controlar la navegación hacia y desde rutas específicas.** Pueden **interceptar la navegación y decidir si permitirla o no.**
+
+**Tipos de Guardas en Angular:**
+
+**CanActivate:** Previene **la activación de una ruta.**
+
+Ejemplo:
+
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -132,10 +138,15 @@ export class AuthGuard implements CanActivate {
     return isLoggedIn;
   }
 }
-CanActivateChild: Previene la activación de rutas hijas.
+**CanActivateChild:** Previene **la activación de rutas hijas.**
 
-typescript
-Copiar código
+Ejemplo:
+
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -148,10 +159,13 @@ export class AuthGuard implements CanActivateChild {
     return isLoggedIn;
   }
 }
-CanDeactivate: Previene la salida de una ruta.
 
-typescript
-Copiar código
+
+
+**CanDeactivate:** Previene **la salida de una ruta.**
+
+Ejemplo:
+
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -170,10 +184,11 @@ export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate>
     return component.canDeactivate ? component.canDeactivate() : true;
   }
 }
-Resolve: Carga datos antes de que se active una ruta.
 
-typescript
-Copiar código
+**Resolve:** Carga **datos antes de que se active una ruta.**
+
+Ejemplo:
+
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -189,10 +204,11 @@ export class DataResolver implements Resolve<any> {
     return of('data');
   }
 }
-CanLoad: Previene la carga de módulos de características.
 
-typescript
-Copiar código
+**CanLoad:** Previene **la carga de módulos de características.**
+
+Ejemplo:
+
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -210,69 +226,78 @@ export class AuthGuard implements CanLoad {
   }
 }
 
-**e-**
 
-La carga Lazy (o carga diferida) de los módulos en Angular es una técnica que permite cargar módulos únicamente cuando son necesarios. Esto es particularmente útil para aplicaciones grandes, ya que ayuda a reducir el tamaño del paquete inicial, mejorando los tiempos de carga y el rendimiento general de la aplicación.
+**e-¿Qué es la carga Lazy de los módulos de Angular? ¿Cómo se configura en Angular la carga Lazy? ( https://angular.io/guide/lazy-loading-ngmodules )**
 
-Configuración de la Carga Lazy en Angular
-Para configurar la carga Lazy en Angular, se siguen los siguientes pasos:
+La **carga Lazy (o carga diferida) de los módulos** en Angular es una **técnica que permite cargar módulos únicamente cuando son necesarios.** Esto es particularmente **útil para aplicaciones grandes**, ya que ayuda a **reducir el tamaño del paquete inicial**, mejorando **los tiempos de carga y el rendimiento general** de la aplicación.
 
-Definir las Rutas con loadChildren en el AppRoutingModule:
-En lugar de especificar un componente en la configuración de rutas, se usa loadChildren para indicar que un módulo debe ser cargado de forma diferida.
+Para **configurar la carga Lazy en Angular**, se **siguen los siguientes pasos:**
 
-typescript
-Copiar código
+**Definir las Rutas con loadChildren en el AppRoutingModule:**
+
+En lugar de **especificar un componente en la configuración de rutas,** se **usa loadChildren** para **indicar que un módulo debe ser cargado de forma diferida.**
+
+Ejemplo:
+
 const routes: Routes = [
   {
     path: 'items',
     loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
   }
 ];
-Configurar el Módulo de Enrutamiento del Módulo con Carga Diferida:
-En el módulo de enrutamiento del módulo que se carga de forma diferida, se debe definir una ruta para el componente específico de ese módulo.
 
-typescript
-Copiar código
+Configurar **el Módulo de Enrutamiento del Módulo con Carga Diferida:**
+
+En el **módulo de enrutamiento del módulo** que se **carga de forma diferida**, se debe **definir una ruta para el componente específico** de ese módulo.
+
+Ejemplo:
+
 const routes: Routes = [
   {
     path: '',
     component: ItemsComponent
   }
 ];
-Crear el Módulo de Funciones con Angular CLI:
-Utiliza la bandera --route al generar un módulo para configurar la carga diferida automáticamente.
 
-sh
-Copiar código
+Crear **el Módulo de Funciones con Angular CLI:**
+
+Utiliza **la bandera --route** al generar **un módulo para configurar la carga diferida automáticamente.**
+
 ng generate module customers --route customers --module app.module
-Este comando crea el módulo CustomersModule con su correspondiente archivo de enrutamiento CustomersRoutingModule, sin añadir referencias en el app.module.ts.
 
-Agregar las Rutas en el AppRoutingModule:
-Actualiza el app-routing.module.ts para incluir la ruta de carga diferida.
+Este **comando crea el módulo CustomersModule** con su correspondiente **archivo de enrutamiento CustomersRoutingModule,** sin añadir **referencias en el app.module.ts.**
 
-typescript
-Copiar código
+Agregar **las Rutas en el AppRoutingModule:**
+
+Actualiza **el app-routing.module.ts para incluir la ruta de carga diferida.**
+
+Ejemplo:
+
 const routes: Routes = [
   {
     path: 'customers',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
   }
 ];
-Configurar la Interfaz de Usuario:
-Define una navegación básica para que los usuarios puedan acceder a los módulos cargados de forma diferida.
 
-html
-Copiar código
+Configurar **la Interfaz de Usuario:**
+
+Define **una navegación básica** para que los usuarios **puedan acceder a los módulos cargados de forma diferida.**
+
+Ejemplo:
+
 <h1>{{title}}</h1>
 <button type="button" routerLink="/customers">Customers</button>
 <button type="button" routerLink="/orders">Orders</button>
 <button type="button" routerLink="">Home</button>
 <router-outlet></router-outlet>
-Precarga de Módulos:
-Si deseas mejorar aún más la experiencia de usuario, puedes configurar la precarga de módulos utilizando PreloadAllModules.
 
-typescript
-Copiar código
+**Precarga de Módulos:**
+
+Si deseas mejorar aún más la experiencia de usuario, **puedes configurar la precarga de módulos utilizando PreloadAllModules.**
+
+Ejemplo:
+
 import { PreloadAllModules } from '@angular/router';
 
 RouterModule.forRoot(
@@ -280,13 +305,16 @@ RouterModule.forRoot(
   { preloadingStrategy: PreloadAllModules }
 )
 
-f) Diferencias entre CanDeactivate y CanActivate Guards en Angular
-CanActivate: Se utiliza para prevenir la activación de una ruta si no se cumplen ciertas condiciones.
+**f-Compara las diferencias entre CanDeactivate y CanActivate guards en Angular. Proporciona ejemplos de cuándo se utilizaría cada uno.** 
 
-Cuándo se utiliza: Autenticación de usuario, autorización basada en roles, verificación de permisos.
+**Diferencias entre CanDeactivate y CanActivate Guards** en Angular:
+
+**CanActivate:** Se utiliza **para prevenir la activación de una ruta si no se cumplen ciertas condiciones.**
+
+**Se utiliza en:** Autenticación de usuario, autorización basada en roles, verificación de permisos.
+
 Ejemplo:
-typescript
-Copiar código
+
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 
@@ -298,12 +326,14 @@ export class AuthGuard implements CanActivate {
     return isLoggedIn; // Lógica para verificar si el usuario está autenticado
   }
 }
-CanDeactivate: Se utiliza para prevenir la navegación fuera de una ruta si no se cumplen ciertas condiciones.
 
-Cuándo se utiliza: Confirmación de guardado de cambios, alertas de formulario sin guardar.
+
+**CanDeactivate:** Se utiliza para **prevenir la navegación fuera de una ruta si no se cumplen ciertas condiciones.**
+
+**Se utiliza en:** Confirmación de guardado de cambios, alertas de formulario sin guardar.
+
 Ejemplo:
-typescript
-Copiar código
+
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 
@@ -319,17 +349,20 @@ export class UnsavedChangesGuard implements CanDeactivate<CanComponentDeactivate
     return component.canDeactivate ? component.canDeactivate() : true;
   }
 }
-g) Middlewares en Angular
-En Angular, los "middlewares" como tales no existen en el mismo sentido que en frameworks de back-end como Express.js. Sin embargo, las Route Guards pueden considerarse una forma de middleware porque interceptan y gestionan la navegación.
 
-Uso en nuestra aplicación
-En el contexto de Angular, estarías usando middlewares en forma de Route Guards para gestionar la autenticación, autorización, carga de datos y protección de formularios.
+
+**g-¿Qué es/para qué son útiles los middlewares en el contexto de Angular? ¿Dónde estás usando middlewares en nuestra aplicación?**
+
+En Angular, **los "middlewares"** como tales **no existen en el mismo sentido que en frameworks de back-end como Express.js.** Sin embargo, **las Route Guards** pueden **considerarse una forma de middleware porque interceptan y gestionan la navegación.**
+
+Uso **en nuestra aplicación:**
+
+En el contexto de Angular, **estarías usando middlewares en forma de Route Guards para gestionar la autenticación, autorización, carga de datos y protección de formularios.**
 
 Ejemplo de Uso de Middlewares (Route Guards)
+
 Autenticación:
 
-typescript
-Copiar código
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 
@@ -341,10 +374,9 @@ export class AuthGuard implements CanActivate {
     return isLoggedIn; // Verificación de autenticación
   }
 }
+
 Protección de Formulario:
 
-typescript
-Copiar código
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 
@@ -360,7 +392,8 @@ export class UnsavedChangesGuard implements CanDeactivate<CanComponentDeactivate
     return component.canDeactivate ? component.canDeactivate() : true;
   }
 }
-En resumen, las Route Guards en Angular pueden considerarse como una implementación de middleware para gestionar y proteger la navegación en la aplicación.
+
+En resumen, **las Route Guards en Angular** pueden considerarse como **una implementación de middleware para gestionar y proteger la navegación en la aplicación.**
 
 
 
