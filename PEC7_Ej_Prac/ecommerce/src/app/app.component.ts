@@ -1,7 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AuthStore } from './shared/services/auth-store.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,8 +17,10 @@ export class AppComponent implements OnInit {
   constructor(private authStore: AuthStore, private router: Router) {}
 
   ngOnInit(): void {
+    // Verificar si el usuario está autenticado
     if (!this.authStore.isAuthenticatedUser()) {
-      this.router.navigate(['/login']);
+      // Redireccionar al login si no está autenticado
+      this.authStore.logout(); // Limpiar cualquier token no válido
     }
   }
 }

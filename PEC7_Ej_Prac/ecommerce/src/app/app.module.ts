@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'; // Importar el componente NavbarComponent
 
-import { SharedModule } from './shared/shared.module'; // Importa el módulo compartido
-import { ArticleModule } from './article/article.module'; // Importa el módulo de artículos
+import { SharedModule } from './shared/shared.module'; // Importar el módulo compartido
+import { ArticleModule } from './article/article.module'; // Importar el módulo de artículos
 
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 

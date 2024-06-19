@@ -26,13 +26,6 @@ export class AuthService {
     return this.http.post<any>(`${this.authUrl}/register`, { username, password });
   }
 
-  logout(): void {
-    localStorage.removeItem('authToken');
-  }
-
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('authToken');
-  }
 }
 
 

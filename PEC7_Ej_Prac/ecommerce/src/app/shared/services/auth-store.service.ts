@@ -41,4 +41,11 @@ export class AuthStore {
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }
+
+
+  logout(): void {
+    localStorage.removeItem('authToken');
+  }
+
+
 }
