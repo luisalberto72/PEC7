@@ -19,8 +19,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Verificar si el usuario está autenticado
     if (!this.authStore.isAuthenticatedUser()) {
-      // Redireccionar al login si no está autenticado
-      this.authStore.logout(); // Limpiar cualquier token no válido
+       // Redireccionar al login si no está autenticado
+       this.router.navigate(['/auth/login']);
+    }
+    else {
+      // Si está autenticado, redireccionar a la página de artículos
+      this.router.navigate(['/articles/list']);
     }
   }
 }
